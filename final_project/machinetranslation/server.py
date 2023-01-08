@@ -5,10 +5,9 @@ from machinetranslation import translator
 app = Flask("Web Translator")
 
 @app.route("/englishToFrench")
-def englishToFrench():
+def english_to_french():
     textToTranslate = request.args.get('textToTranslate')
-    # Write your code here
-    french_text = translator.english_to_french(textToTranslate)
+    french_text= translator.english_to_french(textToTranslate)
     return french_text
 
 @app.route("/frenchToEnglish")
@@ -17,9 +16,8 @@ def french_to_english():
     french_text = translator.french_to_english(textToTranslate)
     return english_text
  
-@app.route("/")
+@app.route("/index")
 def renderIndexPage():
-    # Write the code to render template
     return render_template('index.html')
 
 if __name__ == "__main__":
